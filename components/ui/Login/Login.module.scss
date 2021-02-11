@@ -4,6 +4,7 @@
   border: 1px solid blue;
   height: 85vh;
   padding: 1rem;
+  margin-bottom: 2rem;
 
   @include flexEvenly;
   flex-direction: column;
@@ -19,6 +20,7 @@
 
 .header {
   border: 1px solid black;
+  margin-bottom: 1rem;
 }
 
 .heading {
@@ -43,4 +45,11 @@
   border-radius: var(--smRounded);
   width: 100%;
   margin: 0.75rem 0;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  flex: 0 20px;
 }

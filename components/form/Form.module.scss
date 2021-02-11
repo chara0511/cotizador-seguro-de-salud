@@ -1,13 +1,18 @@
+.formControl {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--geyser);
+  border-radius: var(--smRounded);
+  width: 100%;
+  margin: 0.75rem 0;
+}
+
 .select {
   margin: 1rem;
 }
 
-.nroDocInput {
+.label {
   border-left: 1px solid var(--geyser);
-  padding: 1rem;
-}
-
-.phoneInput {
   padding: 1rem;
 }
 
@@ -17,13 +22,19 @@
   margin-bottom: 1rem;
 }
 
-.checkbox {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  flex: 0 20px;
+.terms {
+  margin: 1rem 0;
 }
 
 .box {
   flex: 1;
+}
+
+.externalLink {
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+.formErrorMessage {
+  color: red;
 }

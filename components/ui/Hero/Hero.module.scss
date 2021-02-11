@@ -8,6 +8,7 @@
   height: 85vh;
   color: var(--chineseWhite);
   padding: 1rem;
+  margin-bottom: 2rem;
 
   @include flexEvenly;
   flex-direction: column;

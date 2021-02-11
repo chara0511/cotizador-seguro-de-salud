@@ -1,10 +1,16 @@
 import { FC } from 'react'
 import styles from './Button.module.scss'
 
-const Button: FC = ({ children }) => {
+interface Props {
+  isDisabled: boolean
+}
+
+const Button: FC<Props> = ({ isDisabled, children }) => {
   return (
     <div className={styles.content}>
-      <button type="submit">{children}</button>
+      <button disabled={isDisabled} className={`${isDisabled && 'disabled'}`} type="submit">
+        {children}
+      </button>
     </div>
   )
 }
