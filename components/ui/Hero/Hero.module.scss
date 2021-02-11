@@ -1,0 +1,69 @@
+@import '@styles/mixins.scss';
+
+.content {
+  border: 1px solid red;
+  background-image: url('/Base.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 85vh;
+  color: var(--chineseWhite);
+  padding: 1rem;
+
+  @include flexEvenly;
+  flex-direction: column;
+
+  @include lg {
+    background-image: none;
+    background-color: var(--royalBlue);
+    padding: 2rem;
+  }
+
+  @include xl {
+    padding: 2rem 0 2rem 8rem;
+  }
+}
+
+.header {
+  max-width: 200px;
+
+  @include sm {
+    max-width: 250px;
+  }
+
+  @include md {
+    max-width: 300px;
+  }
+
+  @include lg {
+    max-width: 350px;
+  }
+}
+
+.heading {
+  line-height: 1.25;
+  font-weight: 300;
+  font-size: var(--heading);
+
+  & > span {
+    font-weight: 600;
+  }
+}
+
+.box {
+  margin-bottom: 1.5rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  & > img {
+    width: 24px;
+    margin-right: 5px;
+  }
+}
+
+.footer {
+  color: var(--geyser);
+}

@@ -1,0 +1,46 @@
+@import '@styles/mixins.scss';
+
+.content {
+  border: 1px solid blue;
+  height: 85vh;
+  padding: 1rem;
+
+  @include flexEvenly;
+  flex-direction: column;
+
+  @include lg {
+    padding: 2rem;
+  }
+
+  @include xl {
+    padding: 2rem 8rem 2rem 0;
+  }
+}
+
+.header {
+  border: 1px solid black;
+}
+
+.heading {
+  font-weight: 300;
+  font-size: var(--subHeading);
+  line-height: 1.25;
+
+  & > span {
+    font-weight: 600;
+    color: var(--royalBlue);
+  }
+}
+
+.text {
+  font-size: var(--md);
+}
+
+.formControl {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--geyser);
+  border-radius: var(--smRounded);
+  width: 100%;
+  margin: 0.75rem 0;
+}

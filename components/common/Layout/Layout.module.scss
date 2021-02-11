@@ -1,0 +1,17 @@
+@import '@styles/mixins.scss';
+
+.container {
+  max-width: 1536px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: auto;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include xl {
+    grid-template-columns: 1.25fr 1fr 1.25fr;
+  }
+}

@@ -18,6 +18,7 @@
       "@components/*": ["components/*"],
       "@config/*": ["config/*"],
       "@lib/*": ["lib/*"],
+      "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]
     }
   },

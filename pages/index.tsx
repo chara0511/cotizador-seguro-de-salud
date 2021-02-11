@@ -1,10 +1,11 @@
-import { Hero } from '@components/ui'
-import styles from '../styles/Home.module.css'
+import { Hero, Login } from '@components/ui'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <Hero />
-    </div>
+      <div className="Fill" />
+      <Login />
+    </>
   )
 }

@@ -1,12 +1,6 @@
 import { FC } from 'react'
-import { Footer, Header } from '@components/common'
+import styles from './Layout.module.scss'
 
-const Layout: FC = ({ children }) => (
-  <div>
-    <Header />
-    <main>{children}</main>
-    <Footer />
-  </div>
-)
+const Layout: FC = ({ children }) => <main className={styles.container}>{children}</main>
 
 export default Layout

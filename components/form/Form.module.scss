@@ -1,0 +1,29 @@
+.select {
+  margin: 1rem;
+}
+
+.nroDocInput {
+  border-left: 1px solid var(--geyser);
+  padding: 1rem;
+}
+
+.phoneInput {
+  padding: 1rem;
+}
+
+.flex {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  flex: 0 20px;
+}
+
+.box {
+  flex: 1;
+}
