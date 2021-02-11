@@ -77,7 +77,7 @@ const Login = () => {
         </PhoneInput>
         {errors.phone && <FormErrorMessage>{errors.phone.message}</FormErrorMessage>}
 
-        <TermsConditions nameLink="Política de Protección de Datos Pesonales y los Términos y Condiciones.">
+        <TermsConditions nameLink="Política de Protección de Datos Personales y los Términos y Condiciones.">
           <input
             name="terms"
             type="checkbox"

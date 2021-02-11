@@ -4,7 +4,7 @@
   border: 1px solid var(--geyser);
   border-radius: var(--smRounded);
   width: 100%;
-  margin: 0.75rem 0;
+  margin: 1rem 0 0;
 }
 
 .select {
@@ -37,4 +37,5 @@
 
 .formErrorMessage {
   color: red;
+  font-size: var(--xs);
 }
