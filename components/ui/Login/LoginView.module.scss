@@ -18,26 +18,6 @@
   }
 }
 
-.header {
-  border: 1px solid black;
-  margin-bottom: 1rem;
-}
-
-.heading {
-  font-weight: 300;
-  font-size: var(--subHeading);
-  line-height: 1.25;
-
-  & > span {
-    font-weight: 600;
-    color: var(--royalBlue);
-  }
-}
-
-.text {
-  font-size: var(--md);
-}
-
 .formControl {
   display: inline-flex;
   align-items: center;
@@ -45,11 +25,4 @@
   border-radius: var(--smRounded);
   width: 100%;
   margin: 1rem 0 0;
-}
-
-.checkbox {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  flex: 0 20px;
 }

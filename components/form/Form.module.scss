@@ -1,3 +1,34 @@
+.header {
+  border: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-weight: 300;
+  font-size: var(--subHeading);
+  line-height: 1.25;
+
+  & > span {
+    font-weight: 600;
+    color: var(--royalBlue);
+  }
+}
+
+.formHeader {
+  user-select: none;
+  white-space: nowrap;
+  line-height: 1;
+
+  & > h2 {
+    font-weight: 500;
+    font-size: var(--md);
+  }
+}
+
+.text {
+  font-size: var(--md);
+}
+
 .formControl {
   display: inline-flex;
   align-items: center;
@@ -5,21 +36,36 @@
   border-radius: var(--smRounded);
   width: 100%;
   margin: 1rem 0 0;
+
+  & > label {
+    padding: 1rem;
+  }
 }
 
 .select {
   margin: 1rem;
 }
 
+.radio {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+
+  & > label {
+    padding: 1rem 0;
+    display: inline-flex;
+
+    & > [type='radio'] {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  }
+}
+
 .label {
   border-left: 1px solid var(--geyser);
   padding: 1rem;
-}
-
-.flex {
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 1rem;
 }
 
 .terms {
@@ -36,6 +82,19 @@
 }
 
 .formErrorMessage {
-  color: red;
+  color: var(--cinnabar);
   font-size: var(--xs);
+  height: 16px;
+}
+
+.flex {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  & > [type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
 }

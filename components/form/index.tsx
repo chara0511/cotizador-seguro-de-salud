@@ -3,9 +3,28 @@ import styles from './Form.module.scss'
 
 interface Props {
   id?: string
+  htmlFor?: string
   name?: string
   nameLink?: string
+  title?: string
+  boldTitle?: string
+  subTitle?: string
 }
+
+export const Header: FC<Props> = ({ title, boldTitle, subTitle }) => (
+  <header className={styles.header}>
+    <h1 className={styles.heading}>
+      {title} <span>{boldTitle}</span>
+    </h1>
+    <p className={styles.text}>{subTitle}</p>
+  </header>
+)
+
+export const FormHeader: FC<Props> = ({ children }) => (
+  <header className={styles.formHeader}>
+    <h2>{children}</h2>
+  </header>
+)
 
 export const Select: FC<Props> = ({ id, name }) => (
   <select id={id} className={styles.select} name={name}>
@@ -19,19 +38,15 @@ export const NroDocInput: FC<Props> = ({ children }) => (
   </label>
 )
 
-export const DateInput: FC<Props> = ({ children }) => (
+export const FormControl: FC<Props> = ({ htmlFor, children }) => (
   <div className={styles.formControl}>
-    <label htmlFor="dateLabel" className={styles.label}>
-      {children}
-    </label>
+    <label htmlFor={htmlFor}>{children}</label>
   </div>
 )
 
-export const PhoneInput: FC<Props> = ({ children }) => (
-  <div className={styles.formControl}>
-    <label className={styles.label} htmlFor="PhoneLabel">
-      {children}
-    </label>
+export const Radio: FC<Props> = ({ htmlFor, children }) => (
+  <div className={styles.radio}>
+    <label htmlFor={htmlFor}>{children}</label>
   </div>
 )
 

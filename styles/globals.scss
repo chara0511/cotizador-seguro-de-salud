@@ -9,6 +9,7 @@
   --geyser: #cfdbe3;
   --royalBlue: #2f80ed;
   --chineseWhite: #e0e0e0;
+  --cinnabar: #e53e3e;
 
   // font family
   --font-sans: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
@@ -129,6 +130,31 @@ ul {
 
   @include lg {
     display: block;
+  }
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include lg {
+    &.cols_1 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &.cols_2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @include xl {
+    &.cols_1 {
+      grid-template-columns: 1.25fr 1fr 1.25fr;
+    }
+
+    &.cols_2 {
+      grid-template-columns: 1fr 1.25fr;
+    }
   }
 }
 
