@@ -12,8 +12,10 @@ export interface StateModel {
   plan?: string
 }
 
+export type VIEW = 'basic' | 'advanced' | 'premium' | 'full'
 interface State {
   values: StateModel
+  view: VIEW
 }
 
 const initialState: State = {
@@ -28,9 +30,12 @@ const initialState: State = {
     add: '',
     plan: '',
   },
+  view: 'basic',
 }
 
-type ACTION = { type: 'GET_FORM_VALUES'; payload: StateModel }
+type ACTION =
+  | { type: 'GET_FORM_VALUES'; payload: StateModel }
+  | { type: 'TOGGLE_VIEW'; payload: VIEW }
 
 const UserContext = createContext<State | any>(initialState)
 
@@ -39,8 +44,14 @@ const userReducer = (state: State, action: ACTION) => {
     case 'GET_FORM_VALUES':
       return { ...state, values: action.payload }
 
+    case 'TOGGLE_VIEW':
+      return {
+        ...state,
+        view: action.payload,
+      }
+
     default:
-      throw new Error(`Unhandled action type: ${action.type}`)
+      throw new Error(`Unhandled action type`)
   }
 }
 
@@ -48,8 +59,9 @@ const UserProvider: FC = (props) => {
   const [state, dispatch] = useReducer(userReducer, initialState)
 
   const getFormValues = (q: StateModel) => dispatch({ type: 'GET_FORM_VALUES', payload: q })
+  const toggleView = (view: VIEW) => dispatch({ type: 'TOGGLE_VIEW', payload: view })
 
-  const value = useMemo(() => ({ ...state, getFormValues }), [state])
+  const value = useMemo(() => ({ ...state, getFormValues, toggleView }), [state])
 
   return <UserContext.Provider value={value} {...props} />
 }

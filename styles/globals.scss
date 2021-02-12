@@ -158,6 +158,10 @@ ul {
   }
 }
 
+.active {
+  border: 1px solid red;
+}
+
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -165,4 +169,9 @@ ul {
   &:hover {
     background-color: var(--royalBlue);
   }
+}
+
+.blocked {
+  opacity: 0.5;
+  text-decoration: line-through;
 }

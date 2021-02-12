@@ -42,7 +42,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
 
   const { add, numDoc, date, title, firstName, lastName, gender } = form
 
-  const handleChangeInputText = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
@@ -70,7 +70,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
             name="numDoc"
             placeholder="Nro de Documento"
             value={numDoc}
-            onChange={handleChangeInputText}
+            onChange={handleChangeInput}
             ref={register({
               required: 'Ingrese un Nro de Documento válido.',
               maxLength: 8,
@@ -86,7 +86,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           name="title"
           placeholder="Nombres"
           value={title}
-          onChange={handleChangeInputText}
+          onChange={handleChangeInput}
           ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 80 })}
         />
       </FormControl>
@@ -98,7 +98,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           name="firstName"
           placeholder="Apellido Paterno"
           value={firstName}
-          onChange={handleChangeInputText}
+          onChange={handleChangeInput}
           ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 80 })}
         />
       </FormControl>
@@ -110,7 +110,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           name="lastName"
           placeholder="Apellido Materno"
           value={lastName}
-          onChange={handleChangeInputText}
+          onChange={handleChangeInput}
           ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 80 })}
         />
       </FormControl>
@@ -122,7 +122,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           name="date"
           onFocus={() => setType('date')}
           onBlur={() => setType('text')}
-          onChange={handleChangeInputText}
+          onChange={handleChangeInput}
           placeholder="Fecha de nacimiento"
           value={type === 'text' ? format(parseISO(date), 'dd/MM/yyyy') : date}
           ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 80 })}
@@ -137,7 +137,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           type="radio"
           name="gender"
           value="male"
-          onChange={handleChangeInputText}
+          onChange={handleChangeInput}
           checked={gender === 'male'}
           ref={register({ required: true })}
         />
@@ -150,13 +150,12 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           type="radio"
           name="gender"
           value="female"
-          onChange={handleChangeInputText}
+          onChange={handleChangeInput}
           checked={gender === 'female'}
           ref={register({ required: true })}
         />
         Femenino
       </Radio>
-
       {errors.phone && <FormErrorMessage>{errors.phone.message}</FormErrorMessage>}
 
       <FormHeader>¿A quién vamos a asegurar?</FormHeader>
@@ -167,7 +166,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           type="radio"
           name="add"
           value="only me"
-          onChange={handleChangeInputText}
+          onChange={handleChangeInput}
           checked={add === 'only me'}
           ref={register({ required: true })}
         />
@@ -180,7 +179,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           type="radio"
           name="add"
           value="me and family"
-          onChange={handleChangeInputText}
+          onChange={handleChangeInput}
           checked={add === 'me and family'}
           ref={register({ required: true })}
         />

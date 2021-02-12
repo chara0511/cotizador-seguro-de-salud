@@ -1,0 +1,19 @@
+@import '@styles/mixins.scss';
+
+.content {
+  border: 1px solid blue;
+  min-height: 95vh;
+  padding: 1rem;
+  margin-bottom: 2rem;
+
+  @include flexEvenly;
+  flex-direction: column;
+
+  @include lg {
+    padding: 2rem;
+  }
+
+  @include xl {
+    padding: 2rem 8rem 2rem 0;
+  }
+}
