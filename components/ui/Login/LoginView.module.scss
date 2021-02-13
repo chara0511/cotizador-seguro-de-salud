@@ -1,16 +1,18 @@
 @import '@styles/mixins.scss';
 
 .content {
-  border: 1px solid blue;
-  height: 95vh;
+  height: 100vh;
   padding: 1rem;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 99;
 
   @include flexEvenly;
   flex-direction: column;
 
   @include lg {
     padding: 2rem;
+    height: 95vh;
   }
 
   @include xl {
@@ -21,7 +23,7 @@
 .formControl {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--geyser);
+  border: 1px solid var(--whiteLilac);
   border-radius: var(--smRounded);
   width: 100%;
   margin: 1rem 0 0;

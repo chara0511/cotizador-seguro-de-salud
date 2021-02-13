@@ -1,11 +1,10 @@
 @import '@styles/mixins.scss';
 
 .content {
-  border: 1px solid red;
-  background-image: url('/Base.png');
+  background-color: var(--royalBlue);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 95vh;
+  height: 100vh;
   color: var(--chineseWhite);
   padding: 1rem;
   margin-bottom: 2rem;
@@ -14,9 +13,8 @@
   flex-direction: column;
 
   @include lg {
-    background-image: none;
-    background-color: var(--royalBlue);
     padding: 2rem;
+    height: 95vh;
   }
 
   @include xl {
@@ -66,5 +64,5 @@
 }
 
 .footer {
-  color: var(--geyser);
+  color: var(--whiteLilac);
 }

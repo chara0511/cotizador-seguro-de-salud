@@ -1,13 +1,13 @@
 import { Background, Grid } from '@components/theme'
-import { AddView } from '@components/steps'
+import { MessageView } from '@components/steps'
 
-const AddPage = () => {
+const MessagePage = () => {
   return (
     <Grid cols="cols_2">
       <Background />
-      <AddView />
+      <MessageView />
     </Grid>
   )
 }
 
-export default AddPage
+export default MessagePage

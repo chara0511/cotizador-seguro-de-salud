@@ -1,0 +1,48 @@
+.content {
+  border: 3px solid var(--whiteLilac);
+  padding: 2rem 0 2rem 2rem;
+  border-radius: var(--mdRounded);
+  position: relative;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  background-color: var(--whiteLilac);
+  text-align: center;
+  font-weight: 600;
+  border-top-left-radius: var(--mdRounded);
+  border-top-right-radius: var(--mdRounded);
+}
+
+.heading {
+  & h3 {
+    font-size: var(--xl);
+    margin: 1rem 0;
+    font-weight: 500;
+  }
+}
+
+.subHeading {
+  & h4 {
+    font-size: var(--sm);
+    margin: 0.5rem 0;
+    font-weight: 500;
+  }
+}
+
+.img {
+  padding: 1rem;
+  margin: auto;
+  border-left: 2px solid var(--whiteLilac);
+
+  & img {
+    width: 112px;
+    height: 100px;
+  }
+}

@@ -8,7 +8,6 @@ import { format, parseISO } from 'date-fns'
 import fetcher from '@utils/fetcher'
 import { StateModel, useUser } from '@components/context'
 import formatData from '@utils/formatData'
-import { Button } from '@components/ui'
 import {
   FormControl,
   FormErrorMessage,
@@ -18,7 +17,7 @@ import {
   Radio,
   Select,
 } from '@components/form'
-import styles from './AddView.module.scss'
+import { Button, Container } from '@components/theme'
 
 type FormValues = {
   date: string
@@ -120,6 +119,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           id="dateLabel"
           type={type}
           name="date"
+          min="1900-01-01"
           onFocus={() => setType('date')}
           onBlur={() => setType('text')}
           onChange={handleChangeInput}
@@ -196,7 +196,7 @@ const AddView = () => {
   const { data, error } = useSWR(query.q?.length ? [`/api/users?seed=${query.q}`] : '', fetcher)
 
   return (
-    <div className={styles.content}>
+    <Container>
       <Header
         title="Hola,"
         boldTitle={!data ? '' : data.results[0].name.first}
@@ -204,7 +204,7 @@ const AddView = () => {
       />
       {!data ? <p>Loading ...</p> : <Add data={formatData(data)} />}
       {error && <p>An error has ocurred</p>}
-    </div>
+    </Container>
   )
 }
 

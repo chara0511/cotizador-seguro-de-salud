@@ -1,0 +1,29 @@
+@import '@styles/mixins.scss';
+
+.accordionTitle {
+  width: 100%;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--riverBed);
+  padding: 1.5rem 0;
+  border-top: solid 1px var(--whiteLilac);
+  border-bottom: solid 1px var(--whiteLilac);
+  outline: none;
+
+  @include flexBetween;
+  flex-direction: column;
+
+  &:hover,
+  &.open {
+    color: var(--royalBlue);
+    outline: none;
+  }
+
+  &.open {
+    &::after {
+      content: '';
+      border-top: 0;
+      border-bottom: 5px solid;
+    }
+  }
+}

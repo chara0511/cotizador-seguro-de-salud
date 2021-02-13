@@ -13,9 +13,9 @@ interface Props {
 
 export const Header: FC<Props> = ({ title, boldTitle, subTitle }) => (
   <header className={styles.header}>
-    <h1 className={styles.heading}>
+    <div className={styles.heading}>
       {title} <span>{boldTitle}</span>
-    </h1>
+    </div>
     <p className={styles.text}>{subTitle}</p>
   </header>
 )

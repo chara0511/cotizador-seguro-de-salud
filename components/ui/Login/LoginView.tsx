@@ -10,7 +10,7 @@ import {
   Select,
   TermsConditions,
 } from '@components/form'
-import { Button } from '@components/ui'
+import { Button } from '@components/theme'
 import styles from './LoginView.module.scss'
 
 type FormValues = {
@@ -67,6 +67,7 @@ const Login = () => {
           type={type}
           onFocus={() => setType('date')}
           onBlur={() => setType('text')}
+          min="1900-01-01"
           placeholder="Fecha de nacimiento"
           ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 10 })}
         />
