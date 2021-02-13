@@ -1,4 +1,8 @@
 import { FC } from 'react'
+import Link from 'next/link'
+
+import { Url } from 'url'
+import { Icon } from '@components/ui'
 import styles from './Theme.module.scss'
 
 interface Props {
@@ -8,6 +12,11 @@ interface Props {
   direction?: string
   button?: boolean
   handleClick?: () => void
+}
+
+interface NEXTlINK {
+  href: Url | string
+  number: number
 }
 
 export const Grid: FC<Props> = ({ cols, children }) => (
@@ -63,6 +72,21 @@ export const Text: FC<Props> = ({ className, children }) => {
   return (
     <div className={`${className} ${styles.text}`}>
       <p>{children}</p>
+    </div>
+  )
+}
+
+export const StepLink: FC<NEXTlINK> = ({ number, href }) => {
+  return (
+    <div className={styles.stepLink}>
+      <div className={styles.icon}>
+        <Icon name="arrow" />
+      </div>
+      <Link href={href}>
+        <a>
+          <span>Paso {number}</span> de 7
+        </a>
+      </Link>
     </div>
   )
 }

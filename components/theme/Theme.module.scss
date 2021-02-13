@@ -93,6 +93,30 @@
   }
 }
 
+.stepLink {
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+
+  & span {
+    color: var(--royalBlue);
+  }
+}
+
+.icon {
+  border-radius: 9999px;
+  border: 2px solid var(--royalBlue);
+  width: 25px;
+  height: 25px;
+  display: flex;
+  transform: rotate(90deg);
+  margin-right: 10px;
+
+  & svg {
+    margin: 0;
+  }
+}
+
 .planButton {
   & > button {
     width: 114px;

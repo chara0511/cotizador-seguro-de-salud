@@ -1,5 +1,11 @@
 @import '@styles/mixins.scss';
 
+.content {
+  & svg {
+    margin: auto;
+  }
+}
+
 .accordionTitle {
   width: 100%;
   font-weight: 600;

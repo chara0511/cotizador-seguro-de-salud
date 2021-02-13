@@ -6,6 +6,8 @@
   font-weight: 300;
   font-size: var(--subHeading);
   line-height: 1.25;
+  margin-bottom: 1.5rem;
+  max-width: 350px;
 
   & > span {
     font-weight: 600;
@@ -26,6 +28,7 @@
 
 .text {
   font-size: var(--md);
+  line-height: 1.5;
 }
 
 .formControl {

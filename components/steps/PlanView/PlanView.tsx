@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useUser, VIEW } from '@components/context'
 import { Header } from '@components/form'
 import { Accordion, Card } from '@components/ui'
-import { Button, Container, Flex, PlanButton } from '@components/theme'
+import { Button, Container, Flex, PlanButton, StepLink } from '@components/theme'
 
 const PlanView = () => {
   const router = useRouter()
@@ -63,6 +63,7 @@ const PlanView = () => {
 
   return (
     <Container>
+      <StepLink number={2} href={`/steps/add?q=${values.numDoc}`} />
       <Header
         title="Elige"
         boldTitle="tu protección"
@@ -90,7 +91,7 @@ const PlanView = () => {
 
       {handlePlanBenefits(view)}
 
-      <div style={{ maxWidth: '350px' }}>
+      <div>
         <Header title="Revisa nuestros" boldTitle="servicios y exclusiones" />
       </div>
 

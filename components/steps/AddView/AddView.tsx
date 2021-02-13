@@ -17,7 +17,7 @@ import {
   Radio,
   Select,
 } from '@components/form'
-import { Button, Container } from '@components/theme'
+import { Button, Container, StepLink } from '@components/theme'
 
 type FormValues = {
   date: string
@@ -212,6 +212,7 @@ const AddView = () => {
 
   return (
     <Container>
+      <StepLink number={1} href="/" />
       <Header
         title="Hola,"
         boldTitle={!data ? '' : data.results[0].name.first}
