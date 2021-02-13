@@ -113,7 +113,12 @@ const Login = () => {
 
 const LoginView = () => (
   <div className={styles.content}>
-    <Header title="Obtén tu" boldTitle="seguro ahora" subTitle="Ingresa los datos para comenzar." />
+    <Header
+      width="full"
+      title="Obtén tu"
+      boldTitle="seguro ahora"
+      subTitle="Ingresa los datos para comenzar."
+    />
 
     <Login />
   </div>

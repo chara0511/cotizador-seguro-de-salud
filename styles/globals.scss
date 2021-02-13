@@ -183,6 +183,18 @@ svg {
   }
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
+.full {
+  width: 100%;
+}
+
+.smWidth {
+  max-width: 350px;
+}
+
 .row {
   flex-direction: row;
 }

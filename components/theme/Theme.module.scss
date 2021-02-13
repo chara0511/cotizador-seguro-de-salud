@@ -93,6 +93,38 @@
   }
 }
 
+.nextLink {
+  width: 100%;
+  text-align: right;
+  & > a {
+    background-color: var(--royalBlue);
+    border: none;
+    color: var(--chineseWhite);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: none;
+    line-height: 1;
+    border-radius: var(--smRounded);
+    font-weight: 600;
+    min-width: 2.5rem;
+    font-size: var(--md);
+    padding: 1.25rem 1.75rem;
+    text-transform: uppercase;
+    transition: all 300ms var(--easing) 0s;
+    width: auto;
+    box-shadow: var(--shadow);
+
+    &:hover {
+      background-color: darken($color: #2f80ed, $amount: 25);
+    }
+  }
+}
+
 .stepLink {
   margin-bottom: 1.5rem;
   display: inline-flex;
@@ -128,6 +160,7 @@
     white-space: nowrap;
     vertical-align: middle;
     outline: none;
+    margin: 0.25rem 0;
 
     & h3 {
       font-size: var(--xl);

@@ -214,6 +214,7 @@ const AddView = () => {
     <Container>
       <StepLink number={1} href="/" />
       <Header
+        width="smWidth"
         title="Hola,"
         boldTitle={!data ? '' : data.results[0].name.first}
         subTitle="Valida que los datos sean correctos."

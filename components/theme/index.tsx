@@ -11,12 +11,13 @@ interface Props {
   className?: string
   direction?: string
   button?: boolean
+  wrap?: string
   handleClick?: () => void
 }
 
-interface NEXTlINK {
+interface NEXTLINK {
   href: Url | string
-  number: number
+  number?: number
 }
 
 export const Grid: FC<Props> = ({ cols, children }) => (
@@ -31,8 +32,8 @@ export const Background = () => (
   </div>
 )
 
-export const Flex: FC<Props> = ({ direction = 'row', children }) => (
-  <div className={`${styles.flex} ${direction}`}>{children}</div>
+export const Flex: FC<Props> = ({ direction = 'row', wrap, children }) => (
+  <div className={`${styles.flex} ${direction} ${wrap}`}>{children}</div>
 )
 
 export const Button: FC<Props> = ({ button, handleClick, isDisabled, children }) => {
@@ -76,7 +77,17 @@ export const Text: FC<Props> = ({ className, children }) => {
   )
 }
 
-export const StepLink: FC<NEXTlINK> = ({ number, href }) => {
+export const NextLink: FC<NEXTLINK> = ({ children, href }) => {
+  return (
+    <div className={styles.nextLink}>
+      <Link href={href}>
+        <a>{children}</a>
+      </Link>
+    </div>
+  )
+}
+
+export const StepLink: FC<NEXTLINK> = ({ number, href }) => {
   return (
     <div className={styles.stepLink}>
       <div className={styles.icon}>

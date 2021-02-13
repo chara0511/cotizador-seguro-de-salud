@@ -1,17 +1,18 @@
 import { Header } from '@components/form'
-import { Button, Container } from '@components/theme'
+import { Container, NextLink } from '@components/theme'
 
 const MessageView = () => {
   return (
     <Container>
       <Header
+        width="full"
         title="¡Gracias por"
         boldTitle="confiar en nosotros!"
         subTitle="Queremos conocer mejor la salud de los asegurados. Un asesor se pondrá en contacto contigo
           en las siguientes 48 horas."
       />
 
-      <Button isDisabled={false}>ir a salud</Button>
+      <NextLink href="/dashboard">ir a salud</NextLink>
     </Container>
   )
 }

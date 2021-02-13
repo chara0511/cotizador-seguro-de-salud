@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
@@ -20,6 +21,18 @@ const PlanView = () => {
 
     return () => clearTimeout(timeout)
   }, [view])
+
+  useEffect(() => {
+    if (!values) {
+      router.push(
+        {
+          pathname: `/`,
+        },
+        undefined,
+        { shallow: true },
+      )
+    }
+  }, [values])
 
   // *transfom entries in an array
   const filterPlan = Object.entries({
@@ -63,14 +76,14 @@ const PlanView = () => {
 
   return (
     <Container>
-      <StepLink number={2} href={`/steps/add?q=${values.numDoc}`} />
+      <StepLink number={2} href={`/steps/add?q=${values?.numDoc}`} />
       <Header
         title="Elige"
         boldTitle="tu protección"
         subTitle="Selecciona tu plan de salud ideal."
       />
 
-      <Flex>
+      <Flex wrap="wrap">
         {filterPlan.map(([key, object]) => (
           <PlanButton
             key={key}
@@ -92,7 +105,7 @@ const PlanView = () => {
       {handlePlanBenefits(view)}
 
       <div>
-        <Header title="Revisa nuestros" boldTitle="servicios y exclusiones" />
+        <Header width="smWidth" title="Revisa nuestros" boldTitle="servicios y exclusiones" />
       </div>
 
       <Flex direction="column">
