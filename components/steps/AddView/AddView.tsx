@@ -65,18 +65,19 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
         <Select />
         <NroDocInput>
           <input
-            type="text"
+            type="number"
             name="numDoc"
             placeholder="Nro de Documento"
             value={numDoc}
             onChange={handleChangeInput}
             ref={register({
               required: 'Ingrese un Nro de Documento válido.',
-              maxLength: 8,
+              maxLength: { value: 8, message: 'Máx. 8' },
             })}
           />
         </NroDocInput>
       </div>
+      <FormErrorMessage> {errors.numDoc && <>{errors.numDoc.message}</>}</FormErrorMessage>
 
       <FormControl htmlFor="titleLabel">
         <input
@@ -86,9 +87,13 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           placeholder="Nombres"
           value={title}
           onChange={handleChangeInput}
-          ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 80 })}
+          ref={register({
+            required: 'Ingrese su nombre.',
+            maxLength: { value: 30, message: 'Máx. 30' },
+          })}
         />
       </FormControl>
+      <FormErrorMessage> {errors.title && <>{errors.title.message}</>}</FormErrorMessage>
 
       <FormControl htmlFor="firstLabel">
         <input
@@ -98,9 +103,13 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           placeholder="Apellido Paterno"
           value={firstName}
           onChange={handleChangeInput}
-          ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 80 })}
+          ref={register({
+            required: 'Ingrese su apellido paterno.',
+            maxLength: { value: 30, message: 'Máx. 30' },
+          })}
         />
       </FormControl>
+      <FormErrorMessage> {errors.firstName && <>{errors.firstName.message}</>}</FormErrorMessage>
 
       <FormControl htmlFor="lastLabel">
         <input
@@ -110,9 +119,13 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           placeholder="Apellido Materno"
           value={lastName}
           onChange={handleChangeInput}
-          ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 80 })}
+          ref={register({
+            required: 'Ingrese su apellido materno.',
+            maxLength: { value: 30, message: 'Máx. 30' },
+          })}
         />
       </FormControl>
+      <FormErrorMessage> {errors.lastName && <>{errors.lastName.message}</>}</FormErrorMessage>
 
       <FormControl htmlFor="dateLabel">
         <input
@@ -125,9 +138,10 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           onChange={handleChangeInput}
           placeholder="Fecha de nacimiento"
           value={type === 'text' ? format(parseISO(date), 'dd/MM/yyyy') : date}
-          ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 80 })}
+          ref={register({ required: 'Ingrese una fecha de nacimiento válida.' })}
         />
       </FormControl>
+      <FormErrorMessage> {errors.date && <>{errors.date.message}</>}</FormErrorMessage>
 
       <FormHeader>Género</FormHeader>
 
@@ -139,7 +153,7 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           value="male"
           onChange={handleChangeInput}
           checked={gender === 'male'}
-          ref={register({ required: true })}
+          ref={register({ required: 'Elija una opción' })}
         />
         Masculino
       </Radio>
@@ -152,11 +166,11 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           value="female"
           onChange={handleChangeInput}
           checked={gender === 'female'}
-          ref={register({ required: true })}
+          ref={register({ required: 'Elija una opción' })}
         />
         Femenino
       </Radio>
-      {errors.phone && <FormErrorMessage>{errors.phone.message}</FormErrorMessage>}
+      <FormErrorMessage> {errors.gender && <>{errors.gender.message}</>}</FormErrorMessage>
 
       <FormHeader>¿A quién vamos a asegurar?</FormHeader>
 
@@ -181,10 +195,11 @@ const Add: FC<{ data: StateModel }> = ({ data }) => {
           value="me and family"
           onChange={handleChangeInput}
           checked={add === 'me and family'}
-          ref={register({ required: true })}
+          ref={register({ required: 'Elija una opción' })}
         />
         A mí y a mi familia
       </Radio>
+      <FormErrorMessage> {errors.add && <>{errors.add.message}</>}</FormErrorMessage>
 
       <Button isDisabled={!!Object.keys(errors).length}>continuar</Button>
     </form>

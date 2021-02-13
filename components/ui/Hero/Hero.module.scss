@@ -12,6 +12,14 @@
   @include flexEvenly;
   flex-direction: column;
 
+  @include sm {
+    padding: 4rem;
+  }
+
+  @include md {
+    padding: 6rem;
+  }
+
   @include lg {
     padding: 2rem;
     height: 95vh;
@@ -53,9 +61,10 @@
 }
 
 .flex {
-  display: flex;
+  display: inline-flex;
   justify-content: flex-start;
   align-items: center;
+  flex-direction: row;
 
   & > img {
     width: 24px;

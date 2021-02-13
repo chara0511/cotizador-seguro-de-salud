@@ -6,6 +6,7 @@ interface Props {
   isDisabled?: boolean
   className?: string
   direction?: string
+  button?: boolean
   handleClick?: () => void
 }
 
@@ -25,10 +26,15 @@ export const Flex: FC<Props> = ({ direction = 'row', children }) => (
   <div className={`${styles.flex} ${direction}`}>{children}</div>
 )
 
-export const Button: FC<Props> = ({ isDisabled, children }) => {
+export const Button: FC<Props> = ({ button, handleClick, isDisabled, children }) => {
   return (
     <div className={styles.button}>
-      <button disabled={isDisabled} className={`${isDisabled && 'disabled'}`} type="submit">
+      <button
+        disabled={isDisabled}
+        className={`${isDisabled && 'disabled'}`}
+        type={button ? 'button' : 'submit'}
+        onClick={handleClick}
+      >
         {children}
       </button>
     </div>

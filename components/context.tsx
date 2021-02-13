@@ -1,4 +1,4 @@
-import { createContext, FC, useContext, useMemo, useReducer } from 'react'
+import { createContext, FC, useContext, useEffect, useMemo, useReducer } from 'react'
 
 export interface StateModel {
   numDoc: string
@@ -55,8 +55,24 @@ const userReducer = (state: State, action: ACTION) => {
   }
 }
 
+// set localstorage
+const persistedState: string | null = 'values'
+const init = () => {
+  let preloadedState
+  try {
+    preloadedState = JSON.parse(window.localStorage.getItem(persistedState) || '')
+  } catch (e) {
+    // ignore
+  }
+  return preloadedState || initialState
+}
+
 const UserProvider: FC = (props) => {
-  const [state, dispatch] = useReducer(userReducer, initialState)
+  const [state, dispatch] = useReducer(userReducer, initialState, init)
+
+  useEffect(() => {
+    localStorage.setItem('values', JSON.stringify(state))
+  }, [state])
 
   const getFormValues = (q: StateModel) => dispatch({ type: 'GET_FORM_VALUES', payload: q })
   const toggleView = (view: VIEW) => dispatch({ type: 'TOGGLE_VIEW', payload: view })

@@ -1,4 +1,5 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 import { useUser, VIEW } from '@components/context'
 import { Header } from '@components/form'
@@ -6,14 +7,40 @@ import { Accordion, Card } from '@components/ui'
 import { Button, Container, Flex, PlanButton } from '@components/theme'
 
 const PlanView = () => {
-  const { view, toggleView } = useUser()
+  const router = useRouter()
+  const { values, view, toggleView, getFormValues } = useUser()
 
+  const [form, setForm] = useState({ plan: 'basic' })
+
+  // *timeout to match client with server
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setForm({ plan: view })
+    }, 100)
+
+    return () => clearTimeout(timeout)
+  }, [view])
+
+  // *transfom entries in an array
   const filterPlan = Object.entries({
     basic: { plan: 'básico', price: 160 },
     advanced: { plan: 'avanzado', price: 200 },
     premium: { plan: 'premium', price: 250 },
     full: { plan: 'full', price: 500 },
   })
+
+  // *send current values and current plan
+  const sendPlan = () => {
+    getFormValues({ ...values, ...form })
+
+    return router.push(
+      {
+        pathname: `/steps/message`,
+      },
+      undefined,
+      { shallow: true },
+    )
+  }
 
   const handlePlanBenefits = useCallback((value: VIEW) => {
     switch (value) {
@@ -83,7 +110,9 @@ const PlanView = () => {
       <Flex>
         <span>enviar cotización por correo</span>
 
-        <Button isDisabled={false}>comprar plan</Button>
+        <Button isDisabled={false} button handleClick={() => sendPlan()}>
+          comprar plan
+        </Button>
       </Flex>
     </Container>
   )

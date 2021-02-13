@@ -8,22 +8,20 @@
   padding: 1.5rem 0;
   border-top: solid 1px var(--whiteLilac);
   border-bottom: solid 1px var(--whiteLilac);
-  outline: none;
 
   @include flexBetween;
   flex-direction: column;
 
+  &:focus,
   &:hover,
   &.open {
     color: var(--royalBlue);
     outline: none;
   }
+}
 
-  &.open {
-    &::after {
-      content: '';
-      border-top: 0;
-      border-bottom: 5px solid;
-    }
-  }
+.accordionBody {
+  padding: 1rem 0;
+  display: inline-flex;
+  line-height: 1.25;
 }

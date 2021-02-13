@@ -18,7 +18,7 @@ const Accordion: FC<Props> = ({ title, children }) => {
         {title}
       </button>
       <div className={`accordionItem ${!isOpen ? 'collapsed' : ''}`}>
-        <div>{children}</div>
+        <div className={styles.accordionBody}>{children}</div>
       </div>
     </div>
   )

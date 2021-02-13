@@ -76,6 +76,11 @@ img {
   margin: auto;
 }
 
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 button,
 input,
 select {
@@ -85,12 +90,39 @@ select {
   overflow: visible;
   border: none;
   background-color: inherit;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
 }
 
 button,
 select {
   text-transform: none;
   cursor: pointer;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+[type='date'] {
+  background: #fff url(/calendar.png) 97% 50% no-repeat;
+  background-size: contain;
+  width: 100%;
+}
+[type='date']::-webkit-inner-spin-button {
+  display: none;
+}
+[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
 }
 
 button,
@@ -116,10 +148,19 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText;
 }
 
+input[type='checkbox'] {
+  cursor: pointer;
+  filter: hue-rotate(260deg);
+}
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+svg {
+  margin-right: 10px;
 }
 
 .cols_2,

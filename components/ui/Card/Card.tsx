@@ -1,5 +1,6 @@
 import { Flex, Pill, Text } from '@components/theme'
 import { FC } from 'react'
+import { Icon } from '@components/ui'
 import styles from './Card.module.scss'
 
 interface Props {
@@ -32,31 +33,37 @@ const Card: FC<Props> = ({ maxCoverage, value }) => {
 
       <div>
         <ul>
-          <li>
+          <li className={styles.inline}>
+            <Icon name="favorite" />
             <Text>Lima (zona de cobertura)</Text>
           </li>
-          <li>
+          <li className={styles.inline}>
+            <Icon name="favorite" />
             <Text>+30 clínicas (en red afiliada)</Text>
           </li>
-          <li>
-            <Text className={`${value === 'basic' ? 'blocked' : ''}`}>Médico a domicilio</Text>
+          <li className={`${styles.inline} ${value === 'basic' ? 'blocked' : ''}`}>
+            <Icon name="favorite" />
+            <Text>Médico a domicilio</Text>
           </li>
-          <li>
-            <Text className={`${value === 'basic' ? 'blocked' : ''}`}>Chequeos preventivos</Text>
+          <li className={`${styles.inline} ${value === 'basic' ? 'blocked' : ''}`}>
+            <Icon name="favorite" />
+            <Text>Chequeos preventivos</Text>
           </li>
-          <li>
-            <Text className={`${value === 'basic' || value === 'advanced' ? 'blocked' : ''}`}>
-              Reembolso nacional
-            </Text>
+          <li
+            className={`${styles.inline} ${
+              value === 'basic' || value === 'advanced' ? 'blocked' : ''
+            }`}
+          >
+            <Icon name="favorite" />
+            <Text>Reembolso nacional</Text>
           </li>
-          <li>
-            <Text
-              className={`${
-                value === 'basic' || value === 'advanced' || value === 'premium' ? 'blocked' : ''
-              }`}
-            >
-              Reembolso internacional
-            </Text>
+          <li
+            className={`${styles.inline} ${
+              value === 'basic' || value === 'advanced' || value === 'premium' ? 'blocked' : ''
+            }`}
+          >
+            <Icon name="favorite" />
+            <Text>Reembolso internacional</Text>
           </li>
         </ul>
       </div>

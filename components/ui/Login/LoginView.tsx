@@ -48,12 +48,12 @@ const Login = () => {
         <Select />
         <NroDocInput>
           <input
-            type="text"
+            type="number"
             name="numDoc"
             placeholder="Nro de Documento"
             ref={register({
               required: 'Ingrese un Nro de Documento válido.',
-              maxLength: 8,
+              maxLength: { value: 8, message: 'Máx. 8' },
             })}
           />
         </NroDocInput>
@@ -69,7 +69,7 @@ const Login = () => {
           onBlur={() => setType('text')}
           min="1900-01-01"
           placeholder="Fecha de nacimiento"
-          ref={register({ required: 'Ingrese una fecha de nacimiento válida.', maxLength: 10 })}
+          ref={register({ required: 'Ingrese una fecha de nacimiento válida.' })}
         />
       </FormControl>
       <FormErrorMessage>{errors.date && <>{errors.date.message}</>}</FormErrorMessage>
@@ -80,18 +80,31 @@ const Login = () => {
           type="tel"
           name="phone"
           placeholder="Celular"
-          ref={register({ required: 'Ingrese un numero de celular válido.', maxLength: 10 })}
+          ref={register({
+            required: 'Ingrese un numero de celular válido.',
+            maxLength: { value: 16, message: 'Máx. 16' },
+          })}
         />
       </FormControl>
       <FormErrorMessage>{errors.phone && <>{errors.phone.message}</>}</FormErrorMessage>
 
       <TermsConditions nameLink="Política de Protección de Datos Personales y los Términos y Condiciones.">
-        <input name="terms" type="checkbox" ref={register({ required: true })} />
+        <input
+          name="terms"
+          type="checkbox"
+          ref={register({ required: 'Acepta los términos y condiciones' })}
+        />
       </TermsConditions>
+      <FormErrorMessage>{errors.terms && <>{errors.terms.message}</>}</FormErrorMessage>
 
       <TermsConditions nameLink="Política de Envío de Comunicaciones Comerciales.">
-        <input name="terms2" type="checkbox" ref={register({ required: true })} />
+        <input
+          name="terms2"
+          type="checkbox"
+          ref={register({ required: 'Acepta los términos y condiciones' })}
+        />
       </TermsConditions>
+      <FormErrorMessage>{errors.terms2 && <>{errors.terms2.message}</>}</FormErrorMessage>
 
       <Button isDisabled={!!Object.keys(errors).length}>comencemos</Button>
     </form>
